@@ -1,10 +1,10 @@
 import java.util.Scanner;
 public class Card {
     private String suit;
-    private char rank;
+    private String rank;
     private int point;
 
-    public Card (String otherSuit, char otherRank, int otherPoint) {
+    public Card (String otherRank, String otherSuit, int otherPoint) {
         suit = otherSuit;
         rank = otherRank;
         point = otherPoint;
@@ -12,7 +12,7 @@ public class Card {
     public String getSuit() {
         return suit;
     }
-    public char getRank() {
+    public String getRank() {
         return rank;
     }
     public int getPoint() {
@@ -21,13 +21,13 @@ public class Card {
     public void setSuit(String suit) {
         this.suit = suit;
     }
-    public void setRank(char rank) {
+    public void setRank(String rank) {
         this.rank = rank;
     }
     public void setPoint(int point) {
         this.point = point;
     }
     public String toString() {
-        return rank " of " suit;
+        return rank + " of " + suit;
     }
 }
