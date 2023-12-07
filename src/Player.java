@@ -8,11 +8,13 @@ public class Player {
     public Player(String inputname) {
         name = inputname;
         points = 0;
+        hand = new ArrayList<Card>();
     }
     public Player(String inputname, ArrayList<Card>handOfCards) {
         name = inputname;
         cards = handOfCards;
         points = 0;
+        hand = new ArrayList<Card>();
     }
 
     public ArrayList<Card> getHand() {
