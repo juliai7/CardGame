@@ -21,6 +21,7 @@ public class Game {
         p2 = new Player("Computer");
 
         for (int i = 0; i <= 6; i++) {
+            deck.shuffle();
             p1.addCard(deck.deal());
             p2.addCard(deck.deal());
         }
@@ -31,16 +32,19 @@ public class Game {
     }
 
     public void compTurn() {
+        boolean canPlay = false;
         for (int i = 0; i < p2.getHand().size(); i++) {
             if (p2.getHand().get(i).getSuit() == topCard.getSuit() || p2.getHand().get(i).getRank() == topCard.getSuit()) {
                 topCard = p2.getHand().get(i);
                 p2.getHand().remove(i);
-                System.out.println("Top Card is now " + topCard.toString());
+                System.out.println("\nComputer played " + topCard.toString() + "\nTop Card is now " + topCard.toString());
+                canPlay = true;
             }
-            else {
-                System.out.println("Computer drew a card");
-                p2.addCard(deck.deal());
-            }
+
+        }
+        if (!canPlay) {
+            System.out.println("Computer drew a card. Computer now has " + (p2.getHand().size() + 1) + " cards.");
+            p2.addCard(deck.deal());
         }
     }
     public void playGame() {
@@ -51,6 +55,7 @@ public class Game {
         while (!gameOver()) {
             boolean canPlay = false;
             System.out.println(p1.getName() + "'s cards \n");
+            
             for (int i = 0; i < p1.getHand().size(); i++) {
                 System.out.println("Card " + (i + 1) + ": " + p1.getHand().get(i).toString());
                 if (p1.getHand().get(i).getSuit().equals(topCard.getSuit()) || p1.getHand().get(i).getRank().equals(topCard.getRank())) {
@@ -66,16 +71,25 @@ public class Game {
                 System.out.println("Which card would you like to play? (ex: 1): ");
                 int cardNum = input.nextInt();
                 cardNum = cardNum - 1;
-                topCard = p1.getHand().get(cardNum);
-                p1.getHand().remove(cardNum);
-                System.out.println("Top Card is now " + topCard.toString());
-                compTurn();
+                boolean canPlay2 = false;
+                while (!canPlay2) {
+                    if (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || p1.getHand().get(cardNum).getRank().equals(topCard.getRank())) {
+                        topCard = p1.getHand().get(cardNum);
+                        p1.getHand().remove(cardNum);
+                        System.out.println("Top Card is now " + topCard.toString());
+                        canPlay2 = true;
+                        compTurn();
+                    }
+                    else {
+                        System.out.println("You can't play that card. Try again!");
+                        break;
+                    }
+                }
             }
+        }
             gameOver();
         }
 
-
-    }
 
     public boolean gameOver() {
         if (p1.getHand().isEmpty()) {

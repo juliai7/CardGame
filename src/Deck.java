@@ -38,11 +38,11 @@ public class Deck {
     }
 
     public void shuffle() {
-        for (int i = 0; i < cards.size() - 1; i++) {
+        for (int i = cards.size() - 1; i > 0; i--) {
             int r = (int) (Math.random() * 1);
-            Card temp = cards.get(r);
-            cards.set(r, cards.get(i));
-            cards.set(i, temp);
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(r));
+            cards.set(r, temp);
         }
     }
 }
