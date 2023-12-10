@@ -48,28 +48,45 @@ public class Game {
         deck.shuffle();
         printInstructions();
         System.out.println("Top card is " + topCard.toString());
-        System.out.println(p1.getName() + "'s cards \n");
-        for (int i = 0; i < p1.getHand().size(); i++) {
-            System.out.println("Card " + (i + 1) + ": " + p1.getHand().get(i).toString());
-        }
-        System.out.println("Which card would you like to play? (ex: 1): ");
-        int cardNum = input.nextInt();
-        cardNum = cardNum - 1;
-        if (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || p1.getHand().get(cardNum).getRank().equals(topCard.getRank())) {
-            topCard = p1.getHand().get(cardNum);
-            p1.getHand().remove(cardNum);
-            System.out.println("Top Card is now " + topCard.toString());
-        }
-        else {
-            System.out.println("You can't play that! Would you like to draw a card or play a different card? (draw/play): ");
-            String playDraw = input.nextLine();
-            if (playDraw.equals("play")) {
-
+        while (!gameOver()) {
+            boolean canPlay = false;
+            System.out.println(p1.getName() + "'s cards \n");
+            for (int i = 0; i < p1.getHand().size(); i++) {
+                System.out.println("Card " + (i + 1) + ": " + p1.getHand().get(i).toString());
+                if (p1.getHand().get(i).getSuit().equals(topCard.getSuit()) || p1.getHand().get(i).getRank().equals(topCard.getRank())) {
+                    canPlay = true;
+                }
             }
+            if (!canPlay) {
+                System.out.println("Looks like you can't play a card! That means you must draw one!");
+                p1.addCard(deck.deal());
+                compTurn();
+            }
+            if (canPlay) {
+                System.out.println("Which card would you like to play? (ex: 1): ");
+                int cardNum = input.nextInt();
+                cardNum = cardNum - 1;
+                topCard = p1.getHand().get(cardNum);
+                p1.getHand().remove(cardNum);
+                System.out.println("Top Card is now " + topCard.toString());
+                compTurn();
+            }
+            gameOver();
         }
+
+
     }
 
-    public void gameOver() {
+    public boolean gameOver() {
+        if (p1.getHand().isEmpty()) {
+            System.out.println(p1.getName() + " wins!");
+            return true;
+        }
+        else if (p2.getHand().isEmpty()) {
+            System.out.println("Computer wins!");
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
