@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f53b2d82-f19c-4e71-9818-2a3536dc4bc0" name="Changes" comment="Finished Game class. Need to fix shuffle">
+    <list default="true" id="f53b2d82-f19c-4e71-9818-2a3536dc4bc0" name="Changes" comment="worked through errors in game class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
@@ -96,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702199420250</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="worked through errors in game class">
+      <option name="closed" value="true" />
+      <created>1702246394441</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702246394441</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +122,7 @@
     <MESSAGE value="Created all files, finished Card class, started Deck class" />
     <MESSAGE value="Started Game class" />
     <MESSAGE value="Finished Game class. Need to fix shuffle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Game class. Need to fix shuffle" />
+    <MESSAGE value="worked through errors in game class" />
+    <option name="LAST_COMMIT_MESSAGE" value="worked through errors in game class" />
   </component>
 </project>

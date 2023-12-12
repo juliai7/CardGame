@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 public class Deck {
     private ArrayList<Card> cards;
+    //Declared a primitive variable
     private int cardsLeft;
 
     public Deck(int[] points, String[] ranks, String[] suits) {
@@ -15,8 +16,8 @@ public class Deck {
                 }
             }
         }
-
         this.shuffle();
+
     }
     public boolean isEmpty() {
         if (cardsLeft == 0) {
@@ -39,7 +40,8 @@ public class Deck {
 
     public void shuffle() {
         for (int i = cards.size() - 1; i > 0; i--) {
-            int r = (int) (Math.random() * 1);
+            //can use math class including multiplication and math.random
+            int r = (int) (Math.random() * i);
             Card temp = cards.get(i);
             cards.set(i, cards.get(r));
             cards.set(r, temp);
