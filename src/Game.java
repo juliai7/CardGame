@@ -1,5 +1,7 @@
 import java.util.Scanner;
+//class containing instance variables, constructors, and methods
 public class Game {
+    //declare object
     private Player p1;
     private Player p2;
     private Deck deck;
@@ -17,6 +19,7 @@ public class Game {
 
         System.out.println("Enter your name: ");
         Scanner input = new Scanner(System.in);
+        //read in user input
         String name = input.nextLine();
         p1 = new Player(name);
 
@@ -40,12 +43,15 @@ public class Game {
                 topCard = p2.getHand().get(i);
                 p2.getHand().remove(i);
                 System.out.println("\nComputer played " + topCard.toString() + "\nTop Card is now " + topCard.toString());
+                //assign primitive variable
                 canPlay = true;
+                break;
             }
 
         }
         if (!canPlay) {
             System.out.println("Computer drew a card. Computer now has " + (p2.getHand().size() + 1) + " cards.");
+            //can use arraylist methods
             p2.addCard(deck.deal());
         }
     }
@@ -61,7 +67,7 @@ public class Game {
                 //initizlized primitive variable
                 boolean canPlay = false;
                 System.out.println(p1.getName() + "'s cards \n");
-                //can use for loops
+                //can use for loops and traverse arraylist
                 for (int i = 0; i < p1.getHand().size(); i++) {
                     System.out.println("Card " + (i + 1) + ": " + p1.getHand().get(i).toString());
                     if (p1.getHand().get(i).getSuit().equals(topCard.getSuit()) || p1.getHand().get(i).getRank().equals(topCard.getRank())) {
@@ -71,6 +77,7 @@ public class Game {
                 //can use if loops
                 if (!canPlay) {
                     System.out.println("Looks like you can't play a card! That means you must draw one!");
+                    //modify arraylist
                     p1.addCard(deck.deal());
                     currentPlayer = false;
                 }
@@ -86,6 +93,7 @@ public class Game {
                             System.out.println("Top Card is now " + topCard.toString());
                             canPlay2 = true;
                             currentPlayer = false;
+                            break;
                         } else {
                             System.out.println("You can't play that card. Try again!");
                             canPlay2 = false;

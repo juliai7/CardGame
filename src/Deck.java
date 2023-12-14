@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 import java.lang.Math;
 public class Deck {
+    //declare arraylist
     private ArrayList<Card> cards;
     //Declared a primitive variable
     private int cardsLeft;
 
     public Deck(int[] points, String[] ranks, String[] suits) {
+        //initizlize arraylist
         cards = new ArrayList<Card>();
+        //can use for-each loops
         for (String rank : ranks) {
             for (int point : points) {
                 for (String suit: suits) {
@@ -39,6 +42,7 @@ public class Deck {
     }
 
     public void shuffle() {
+        //can use arraylist methods
         for (int i = cards.size() - 1; i > 0; i--) {
             //can use math class including multiplication and math.random
             int r = (int) (Math.random() * i);
