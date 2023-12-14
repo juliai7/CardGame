@@ -87,7 +87,40 @@ public class Game {
                     cardNum = cardNum - 1;
                     boolean canPlay2 = false;
                     while (!canPlay2) {
-                        if (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || p1.getHand().get(cardNum).getRank().equals(topCard.getRank())) {
+                        if (p1.getHand().get(cardNum).getRank().equals("8") && p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit())) {
+                            System.out.println("Please input a suit (ex: spades)");
+                            String suitInput = input.nextLine();
+                            boolean existing = false;
+                            if (suitInput.equalsIgnoreCase("Hearts") || suitInput.equalsIgnoreCase("Diamonds") || suitInput.equalsIgnoreCase("Clubs") || suitInput.equalsIgnoreCase("Spades")) {
+                                existing = true;
+                            }
+                            if (suitInput.equalsIgnoreCase("Hearts")){
+                                System.out.println("Top Card is now 8 of Hearts");
+                                Card newTopCard = new Card("8", "Hearts", 1);
+                                topCard = newTopCard;
+                            }
+                            else if (suitInput.equalsIgnoreCase("Diamonds")){
+                                System.out.println("Top Card is now 8 of Diamonds");
+                                Card newTopCard = new Card("8", "Diamonds", 1);
+                                topCard = newTopCard;
+                            }
+                            else if (suitInput.equalsIgnoreCase("Clubs")){
+                                System.out.println("Top Card is now 8 of Clubs");
+                                Card newTopCard = new Card("8", "Clubs", 1);
+                                topCard = newTopCard;
+                            }
+                            else if (suitInput.equalsIgnoreCase("Spades")){
+                                System.out.println("Top Card is now 8 of Spades");
+                                Card newTopCard = new Card("8", "Spades", 1);
+                                topCard = newTopCard;
+                            }
+                            while (!existing) {
+                                System.out.println("That's not a suit! Please input either Spades, Diamonds, Clubs, or Hearts");
+                                suitInput = input.nextLine();
+                                break;
+                            }
+                        }
+                        else if (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || p1.getHand().get(cardNum).getRank().equals(topCard.getRank())) {
                             topCard = p1.getHand().get(cardNum);
                             p1.getHand().remove(cardNum);
                             System.out.println("Top Card is now " + topCard.toString());

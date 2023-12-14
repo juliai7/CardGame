@@ -13,7 +13,7 @@ public class Deck {
         for (String rank : ranks) {
             for (int point : points) {
                 for (String suit: suits) {
-                    Card card = new Card(rank, suit, point) ;
+                    Card card = new Card(rank,suit, point) ;
                     cards.add(card);
                     cardsLeft+=1;
                 }
