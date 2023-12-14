@@ -7,9 +7,9 @@ public class Deck {
     private int cardsLeft;
 
     public Deck(int[] points, String[] ranks, String[] suits) {
-        //initizlize arraylist
+        // Initialize arraylist
         cards = new ArrayList<Card>();
-        //can use for-each loops
+        // Can use for-each loops
         for (String rank : ranks) {
             for (int point : points) {
                 for (String suit: suits) {
@@ -42,9 +42,9 @@ public class Deck {
     }
 
     public void shuffle() {
-        //can use arraylist methods
+        // Can use arraylist methods
         for (int i = cards.size() - 1; i > 0; i--) {
-            //can use math class including multiplication and math.random
+            // Can use math class including multiplication and math.random
             int r = (int) (Math.random() * i);
             Card temp = cards.get(i);
             cards.set(i, cards.get(r));

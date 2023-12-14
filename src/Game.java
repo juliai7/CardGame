@@ -1,7 +1,7 @@
 import java.util.Scanner;
-//class containing instance variables, constructors, and methods
+// Class containing instance variables, constructors, and methods
 public class Game {
-    //declare object
+    // Declare object
     private Player p1;
     private Player p2;
     private Deck deck;
@@ -9,7 +9,7 @@ public class Game {
     private Card topCard;
 
     public Game () {
-        //initialize object
+        // Initialize object
         int[] point = {1};
         String[] rank = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         String[] suit = {"Spades", "Hearts", "Diamonds", "Clubs"};
@@ -19,13 +19,14 @@ public class Game {
 
         System.out.println("Enter your name: ");
         Scanner input = new Scanner(System.in);
-        //read in user input
+        // Read in user input
         String name = input.nextLine();
         p1 = new Player(name);
 
         p2 = new Player("Computer");
         
         deck.shuffle();
+        // Deal each player 7 cards
         for (int i = 0; i <= 6; i++) {
             p1.addCard(deck.deal());
             p2.addCard(deck.deal());
@@ -37,7 +38,9 @@ public class Game {
     }
 
     public void compTurn() {
+        // Boolean to see if it can play a card or not
         boolean canPlay = false;
+        // Iterate through computer hand and see if any card matches with top card
         for (int i = 0; i < p2.getHand().size(); i++) {
             if (p2.getHand().get(i).getSuit() == topCard.getSuit() || p2.getHand().get(i).getRank() == topCard.getSuit()) {
                 topCard = p2.getHand().get(i);
@@ -49,9 +52,10 @@ public class Game {
             }
 
         }
+        // If computer doesn't have any cards that match then takes a card
         if (!canPlay) {
             System.out.println("Computer drew a card. Computer now has " + (p2.getHand().size() + 1) + " cards.");
-            //can use arraylist methods
+            // Can use arraylist methods
             p2.addCard(deck.deal());
         }
     }
@@ -60,14 +64,15 @@ public class Game {
         deck.shuffle();
         printInstructions();
         System.out.println("Top card is " + topCard.toString());
+        // Boolean to represent whose turn it is (true is player 1 and false is comp)
         boolean currentPlayer = true;
-        //can use while loops
+        // Can use while loops
         while (!gameOver()) {
             if (currentPlayer) {
                 // Initialized primitive variable
                 boolean canPlay = false;
                 System.out.println(p1.getName() + "'s cards \n");
-                // can use for loops and traverse arraylist
+                // Can use for loops and traverse arraylist
                 // Checks if they have a card to play
                 for (int i = 0; i < p1.getHand().size(); i++) {
                     System.out.println("Card " + (i + 1) + ": " + p1.getHand().get(i).toString());
@@ -75,10 +80,11 @@ public class Game {
                         canPlay = true;
                     }
                 }
-                // can use if loops
+                // Can use if loops
+                // Adds a card and skips their turn if they don't have a card to play
                 if (!canPlay) {
                     System.out.println("Looks like you can't play a card! That means you must draw one!");
-                    //modify arraylist
+                    // Modify arraylist
                     p1.addCard(deck.deal());
                     currentPlayer = false;
                     continue;
@@ -90,6 +96,7 @@ public class Game {
                         int cardNum = input.nextInt();
                         input.nextLine();
                         cardNum = cardNum - 1;
+                        // Checks if the card they want to play is an 8 and asks which suit to switch to
                         if (p1.getHand().get(cardNum).getRank().equals("8") && (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || topCard.getRank().equals("8"))) {
                             System.out.println("Please input a suit (ex: spades)");
                             String suitInput = input.nextLine();
@@ -100,37 +107,44 @@ public class Game {
                                 if (suitInput.equalsIgnoreCase("Hearts") || suitInput.equalsIgnoreCase("Diamonds") || suitInput.equalsIgnoreCase("Clubs") || suitInput.equalsIgnoreCase("Spades")) {
                                     existing = true;
                                 }
+                                // If the suit exists set the top card equal to that and remove a card from p1 deck
                                 if (suitInput.equalsIgnoreCase("Hearts")) {
                                     System.out.println("Top Card is now 8 of Hearts");
                                     Card newTopCard = new Card("8", "Hearts", 1);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
+                                    currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Diamonds")) {
                                     System.out.println("Top Card is now 8 of Diamonds");
                                     Card newTopCard = new Card("8", "Diamonds", 1);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
+                                    currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Clubs")) {
                                     System.out.println("Top Card is now 8 of Clubs");
                                     Card newTopCard = new Card("8", "Clubs", 1);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
+                                    currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Spades")) {
                                     System.out.println("Top Card is now 8 of Spades");
                                     Card newTopCard = new Card("8", "Spades", 1);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
+                                    currentPlayer = false;
                                     canPlay2 = true;
                                 }
+                                // If it doesn't exist, reprompt the user
                                 if (!existing) {
                                     System.out.println("That's not a suit! Please input either Spades, Diamonds, Clubs, or Hearts");
                                     suitInput = input.nextLine();
                                 }
                             }
                         }
+                        // If its a regular card, check if it matches the top card
                         else if (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || p1.getHand().get(cardNum).getRank().equals(topCard.getRank())) {
                             topCard = p1.getHand().get(cardNum);
                             p1.getHand().remove(cardNum);
@@ -144,11 +158,13 @@ public class Game {
                     }
                 }
             }
+            // Computers turn
             if (!currentPlayer && !gameOver()) {
                 compTurn();
                 currentPlayer = true;
             }
         }
+        // If the players hand is empty then game is over and they've won
             if (gameOver() && !currentPlayer) {
                 System.out.println(p1.getName() +" wins!");
             }
@@ -157,7 +173,7 @@ public class Game {
             }
         }
 
-
+    // Check if hand is empty
     public boolean gameOver() {
         if (p1.getHand().isEmpty()) {
             return true;

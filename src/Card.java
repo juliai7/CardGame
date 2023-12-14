@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Card {
     private String suit;
     private String rank;
-    //declare primitive variable
+    // Declare primitive variable
     private int point;
 
     public Card (String otherRank, String otherSuit, int otherPoint) {
@@ -10,7 +10,7 @@ public class Card {
         rank = otherRank;
         point = otherPoint;
     }
-    //can write getters and setters with the correct return type
+    // Can write getters and setters with the correct return type
     public String getSuit() {
         return suit;
     }
