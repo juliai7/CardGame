@@ -4,19 +4,19 @@ public class Deck {
     //declare arraylist
     private ArrayList<Card> cards;
     //Declared a primitive variable
+    public GameViewer window;
     private int cardsLeft;
 
     public Deck(int[] points, String[] ranks, String[] suits) {
         // Initialize arraylist
         cards = new ArrayList<Card>();
         // Can use for-each loops
-        for (String rank : ranks) {
-            for (int point : points) {
-                for (String suit: suits) {
-                    Card card = new Card(rank,suit, point) ;
-                    cards.add(card);
-                    cardsLeft+=1;
-                }
+        for (int i = 0; i < ranks.length; i++) {
+            for (String suit: suits) {
+                String rank = ranks[i];
+                Card card = new Card(rank,suit, points[i], window) ;
+                cards.add(card);
+                cardsLeft+=1;
             }
         }
         this.shuffle();

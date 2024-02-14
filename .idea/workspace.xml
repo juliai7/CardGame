@@ -4,8 +4,66 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f53b2d82-f19c-4e71-9818-2a3536dc4bc0" name="Changes" comment="fixed some errors in code">
+    <list default="true" id="f53b2d82-f19c-4e71-9818-2a3536dc4bc0" name="Changes" comment="commented code">
+      <change afterPath="$PROJECT_DIR$/Resources/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/52.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameViewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CardGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CardGame.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +108,17 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/juliaim/Documents/cs2/CardGame/src/Main.java&quot;
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/juliaim/Documents/cs2/CardGame/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Resources" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -134,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702580946935</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="commented code">
+      <option name="closed" value="true" />
+      <created>1702589002411</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702589002411</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,14 +231,15 @@
     <MESSAGE value="added more comments" />
     <MESSAGE value="created exception for if the cards is an 8" />
     <MESSAGE value="fixed some errors in code" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed some errors in code" />
+    <MESSAGE value="commented code" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>93</line>
+          <line>110</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

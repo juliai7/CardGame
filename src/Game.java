@@ -5,12 +5,15 @@ public class Game {
     private Player p1;
     private Player p2;
     private Deck deck;
-
+    public GameViewer window;
     private Card topCard;
+    private int rounds;
 
     public Game () {
         // Initialize object
-        int[] point = {1};
+        window = new GameViewer(this);
+        rounds = 0;
+        int[] point = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         String[] rank = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         String[] suit = {"Spades", "Hearts", "Diamonds", "Clubs"};
         deck = new Deck(point, rank, suit);
@@ -33,6 +36,10 @@ public class Game {
         }
     }
 
+    public int getRounds() {
+        return rounds;
+    }
+
     public void printInstructions() {
         System.out.println("How to play Crazy 8s:\nPlayers try to get rid of their cards by placing them on top of the flipped up card in the center.\nPlayers may do so if the card they want to get rid of is the same number or suit of the card flipped up.\n8s are wild and if a player plays an 8, they must state what suit the 8 will be for the next player.\n");
     }
@@ -40,6 +47,7 @@ public class Game {
     public void compTurn() {
         // Boolean to see if it can play a card or not
         boolean canPlay = false;
+        rounds ++;
         // Iterate through computer hand and see if any card matches with top card
         for (int i = 0; i < p2.getHand().size(); i++) {
             if (p2.getHand().get(i).getSuit() == topCard.getSuit() || p2.getHand().get(i).getRank() == topCard.getSuit()) {
@@ -69,6 +77,8 @@ public class Game {
         // Can use while loops
         while (!gameOver()) {
             if (currentPlayer) {
+                window.repaint();
+                rounds++;
                 // Initialized primitive variable
                 boolean canPlay = false;
                 System.out.println(p1.getName() + "'s cards \n");
@@ -110,28 +120,28 @@ public class Game {
                                 // If the suit exists set the top card equal to that and remove a card from p1 deck
                                 if (suitInput.equalsIgnoreCase("Hearts")) {
                                     System.out.println("Top Card is now 8 of Hearts");
-                                    Card newTopCard = new Card("8", "Hearts", 1);
+                                    Card newTopCard = new Card("8", "Hearts", 1, window);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Diamonds")) {
                                     System.out.println("Top Card is now 8 of Diamonds");
-                                    Card newTopCard = new Card("8", "Diamonds", 1);
+                                    Card newTopCard = new Card("8", "Diamonds", 1, window);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Clubs")) {
                                     System.out.println("Top Card is now 8 of Clubs");
-                                    Card newTopCard = new Card("8", "Clubs", 1);
+                                    Card newTopCard = new Card("8", "Clubs", 1, window);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Spades")) {
                                     System.out.println("Top Card is now 8 of Spades");
-                                    Card newTopCard = new Card("8", "Spades", 1);
+                                    Card newTopCard = new Card("8", "Spades", 1, window);
                                     topCard = newTopCard;
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;

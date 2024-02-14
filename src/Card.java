@@ -1,11 +1,15 @@
+import java.awt.*;
 import java.util.Scanner;
 public class Card {
     private String suit;
     private String rank;
     // Declare primitive variable
     private int point;
+    public GameViewer window;
 
-    public Card (String otherRank, String otherSuit, int otherPoint) {
+
+
+    public Card (String otherRank, String otherSuit, int otherPoint, GameViewer window) {
         suit = otherSuit;
         rank = otherRank;
         point = otherPoint;
@@ -31,5 +35,11 @@ public class Card {
     }
     public String toString() {
         return rank + " of " + suit;
+    }
+
+    public void draw (Graphics g) {
+//        for (int i = 0; i < 53; i++) {
+//            g.drawImage(window.getCardImages()[i], 100, 100, 100, 100, window);
+//        }
     }
 }
