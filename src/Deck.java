@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.lang.Math;
 public class Deck {
@@ -5,23 +7,64 @@ public class Deck {
     private ArrayList<Card> cards;
     //Declared a primitive variable
     public GameViewer window;
+    public Image[] cardImage;
     private int cardsLeft;
+    private Card eightOfSpades;
+    private Card eightofHearts;
+    private Card eightOfDiamonds;
+    private Card eightOfClubs;
+
+
 
     public Deck(int[] points, String[] ranks, String[] suits) {
         // Initialize arraylist
         cards = new ArrayList<Card>();
         // Can use for-each loops
+        int j = 1;
         for (int i = 0; i < ranks.length; i++) {
             for (String suit: suits) {
                 String rank = ranks[i];
-                Card card = new Card(rank,suit, points[i], window) ;
+                Image cardImage = new ImageIcon("Resources/" + j + ".png").getImage();
+                Card card = new Card(rank,suit, points[i], window, cardImage) ;
+                if (card.getRank().equals("8")) {
+                    if (card.getSuit().equals("Spades")) {
+                        eightOfSpades = card;
+                    }
+                    else if (card.getSuit().equals("Hearts")) {
+                        eightofHearts = card;
+                    }
+                    else if (card.getSuit().equals("Diamonds")) {
+                        eightOfDiamonds = card;
+                    }
+                    else {
+                        eightOfClubs = card;
+                    }
+                }
                 cards.add(card);
                 cardsLeft+=1;
+                j++;
             }
         }
+
         this.shuffle();
 
     }
+    public Card getEightOfSpades() {
+        return eightOfSpades;
+    }
+
+    public Card getEightofHearts() {
+        return eightofHearts;
+    }
+
+    public Card getEightOfDiamonds() {
+        return eightOfDiamonds;
+    }
+
+    public Card getEightOfClubs() {
+        return eightOfClubs;
+    }
+
     public boolean isEmpty() {
         if (cardsLeft == 0) {
             return true;

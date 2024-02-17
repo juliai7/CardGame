@@ -42,11 +42,26 @@ public class GameViewer extends JFrame {
             g.drawString("Players may do so if the card they want to get rid of is the same number or suit of the card flipped up.", 100, 400);
             g.drawString("8s are wild and if a player plays an 8, they must state what suit the 8 will be for the next player.", 100, 450);
         }
-        else {
+        else if (!game.gameOver()) {
             g.setColor(Color.white);
             g.drawRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
             g.drawImage(cardImages[52], 525, 325, 100, 150, this);
+
+            for (int i = 0; i < game.getP1().getHand().size(); i++) {
+                game.getP1().getHand().get(i).draw(g, 100 + (i * 75), 600);
+            }
+            int p2HandSize = game.getP2().getHand().size();
+            for (int i = 0; i < p2HandSize; i++) {
+                g.drawImage(cardImages[52], 300 + (i * 25), 150, 100, 150, this);
+
+                }
+            }
+            game.getTopCard().draw(g, 400, 325);
+        }
+        else {
+            if (!game.isCurrentPlayer()) {
+
         }
 
 

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 // Class containing instance variables, constructors, and methods
 public class Game {
@@ -8,11 +9,14 @@ public class Game {
     public GameViewer window;
     private Card topCard;
     private int rounds;
+    boolean currentPlayer;
 
     public Game () {
         // Initialize object
         window = new GameViewer(this);
         rounds = 0;
+        // Boolean to represent whose turn it is (true is player 1 and false is comp)
+        currentPlayer = true;
         int[] point = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         String[] rank = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         String[] suit = {"Spades", "Hearts", "Diamonds", "Clubs"};
@@ -33,6 +37,7 @@ public class Game {
         for (int i = 0; i <= 6; i++) {
             p1.addCard(deck.deal());
             p2.addCard(deck.deal());
+
         }
     }
 
@@ -72,8 +77,6 @@ public class Game {
         deck.shuffle();
         printInstructions();
         System.out.println("Top card is " + topCard.toString());
-        // Boolean to represent whose turn it is (true is player 1 and false is comp)
-        boolean currentPlayer = true;
         // Can use while loops
         while (!gameOver()) {
             if (currentPlayer) {
@@ -111,48 +114,38 @@ public class Game {
                             System.out.println("Please input a suit (ex: spades)");
                             String suitInput = input.nextLine();
 
-                            // Checks if the suit exists
-                            boolean existing = false;
-                            while(!existing) {
-                                if (suitInput.equalsIgnoreCase("Hearts") || suitInput.equalsIgnoreCase("Diamonds") || suitInput.equalsIgnoreCase("Clubs") || suitInput.equalsIgnoreCase("Spades")) {
-                                    existing = true;
-                                }
-                                // If the suit exists set the top card equal to that and remove a card from p1 deck
+                            // If the suit exists set the top card equal to that and remove a card from p1 deck
                                 if (suitInput.equalsIgnoreCase("Hearts")) {
                                     System.out.println("Top Card is now 8 of Hearts");
-                                    Card newTopCard = new Card("8", "Hearts", 1, window);
-                                    topCard = newTopCard;
+                                    topCard = deck.getEightofHearts();
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Diamonds")) {
                                     System.out.println("Top Card is now 8 of Diamonds");
-                                    Card newTopCard = new Card("8", "Diamonds", 1, window);
-                                    topCard = newTopCard;
+                                    topCard = deck.getEightOfDiamonds();
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Clubs")) {
                                     System.out.println("Top Card is now 8 of Clubs");
-                                    Card newTopCard = new Card("8", "Clubs", 1, window);
-                                    topCard = newTopCard;
+                                    topCard = deck.getEightOfClubs();
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;
                                     canPlay2 = true;
                                 } else if (suitInput.equalsIgnoreCase("Spades")) {
                                     System.out.println("Top Card is now 8 of Spades");
-                                    Card newTopCard = new Card("8", "Spades", 1, window);
-                                    topCard = newTopCard;
+                                    topCard = deck.getEightOfSpades();
                                     p1.getHand().remove(cardNum);
                                     currentPlayer = false;
                                     canPlay2 = true;
                                 }
                                 // If it doesn't exist, reprompt the user
-                                if (!existing) {
+                                else {
                                     System.out.println("That's not a suit! Please input either Spades, Diamonds, Clubs, or Hearts");
                                     suitInput = input.nextLine();
                                 }
-                            }
+
                         }
                         // If its a regular card, check if it matches the top card
                         else if (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || p1.getHand().get(cardNum).getRank().equals(topCard.getRank())) {
@@ -175,20 +168,38 @@ public class Game {
             }
         }
         // If the players hand is empty then game is over and they've won
-            if (gameOver() && !currentPlayer) {
-                System.out.println(p1.getName() +" wins!");
-            }
-            if (gameOver() && currentPlayer) {
-                System.out.println("Computer wins!");
-            }
+//            if (gameOver() && !currentPlayer) {
+//                System.out.println(p1.getName() +" wins!");
+//            }
+//            if (gameOver() && currentPlayer) {
+//                System.out.println("Computer wins!");
+//            }
         }
+
+    public boolean isCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public Player getP1() {
+        return p1;
+    }
+
+    public Player getP2() {
+        return p2;
+    }
+
+    public Card getTopCard() {
+        return topCard;
+    }
 
     // Check if hand is empty
     public boolean gameOver() {
         if (p1.getHand().isEmpty()) {
+            System.out.println(p1.getName() +" wins!");
             return true;
         }
         else if (p2.getHand().isEmpty()) {
+            System.out.println("Computer wins!");
             return true;
         }
         return false;

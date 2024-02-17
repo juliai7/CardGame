@@ -5,14 +5,18 @@ public class Card {
     private String rank;
     // Declare primitive variable
     private int point;
-    public GameViewer window;
+    private GameViewer window;
+
+    private Image image;
 
 
 
-    public Card (String otherRank, String otherSuit, int otherPoint, GameViewer window) {
+    public Card (String otherRank, String otherSuit, int otherPoint, GameViewer window, Image image) {
         suit = otherSuit;
         rank = otherRank;
         point = otherPoint;
+        this.window = window;
+        this.image = image;
     }
     // Can write getters and setters with the correct return type
     public String getSuit() {
@@ -37,9 +41,8 @@ public class Card {
         return rank + " of " + suit;
     }
 
-    public void draw (Graphics g) {
-//        for (int i = 0; i < 53; i++) {
-//            g.drawImage(window.getCardImages()[i], 100, 100, 100, 100, window);
-//        }
+    public void draw (Graphics g, int x, int y) {
+        g.drawImage(image, x, y, 100, 150, window);
+
     }
 }
