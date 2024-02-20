@@ -126,6 +126,7 @@ public class Game {
                         int cardNum = input.nextInt();
                         input.nextLine();
                         cardNum = cardNum - 1;
+
                         // Check if the card is an 8 or not
                         if (check8(cardNum)) {
                             canPlay2 = true;
@@ -175,39 +176,36 @@ public class Game {
         if (p1.getHand().get(cardNum).getRank().equals("8") && (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || topCard.getRank().equals("8"))) {
             System.out.println("Please input a suit (ex: spades)");
             String suitInput = input.nextLine();
-
-            // If the suit exists set the top card equal to that and remove a card from p1 deck
-            if (suitInput.equalsIgnoreCase("Hearts")) {
-                System.out.println("Top Card is now 8 of Hearts");
-                // Set top card equal to new card
-                topCard = deck.getEightofHearts();
-                // Remove old card
-                p1.getHand().remove(cardNum);
-                return true;
-            }
-            else if (suitInput.equalsIgnoreCase("Diamonds")) {
-                System.out.println("Top Card is now 8 of Diamonds");
-                topCard = deck.getEightOfDiamonds();
-                p1.getHand().remove(cardNum);
-                return true;
-            }
-            else if (suitInput.equalsIgnoreCase("Clubs")) {
-                System.out.println("Top Card is now 8 of Clubs");
-                topCard = deck.getEightOfClubs();
-                p1.getHand().remove(cardNum);
-                return true;
-            }
-            else if (suitInput.equalsIgnoreCase("Spades")) {
-                System.out.println("Top Card is now 8 of Spades");
-                topCard = deck.getEightOfSpades();
-                p1.getHand().remove(cardNum);
-                return true;
-            }
-            // If it doesn't exist, reprompt the user
-            else {
+            while (!suitInput.equalsIgnoreCase("Hearts") && !suitInput.equalsIgnoreCase("Diamonds") && !suitInput.equalsIgnoreCase("Clubs") && !suitInput.equalsIgnoreCase("Spades")){
+                // If it doesn't exist, reprompt the user
                 System.out.println("That's not a suit! Please input either Spades, Diamonds, Clubs, or Hearts");
                 suitInput = input.nextLine();
             }
+                // If the suit exists set the top card equal to that and remove a card from p1 deck
+                if (suitInput.equalsIgnoreCase("Hearts")) {
+                    System.out.println("Top Card is now 8 of Hearts");
+                    // Set top card equal to new card
+                    topCard = deck.getEightofHearts();
+                    // Remove old card
+                    p1.getHand().remove(cardNum);
+                    return true;
+                } else if (suitInput.equalsIgnoreCase("Diamonds")) {
+                    System.out.println("Top Card is now 8 of Diamonds");
+                    topCard = deck.getEightOfDiamonds();
+                    p1.getHand().remove(cardNum);
+                    return true;
+                } else if (suitInput.equalsIgnoreCase("Clubs")) {
+                    System.out.println("Top Card is now 8 of Clubs");
+                    topCard = deck.getEightOfClubs();
+                    p1.getHand().remove(cardNum);
+                    return true;
+                } else if (suitInput.equalsIgnoreCase("Spades")) {
+                    System.out.println("Top Card is now 8 of Spades");
+                    topCard = deck.getEightOfSpades();
+                    p1.getHand().remove(cardNum);
+                    return true;
+                }
+
             // Only change players if the game isn't over so it doesn't return the wrong winner.
             if (!gameOver()) {
                 currentPlayer = false;
