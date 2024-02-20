@@ -1,3 +1,5 @@
+//Crazy 8's by Julia Im
+//02/19/2024
 import java.util.ArrayList;
 import java.util.Scanner;
 // Class containing instance variables, constructors, and methods
@@ -55,8 +57,9 @@ public class Game {
         rounds++;
         // Iterate through computer hand and see if any card matches with top card
         for (int i = 0; i < p2.getHand().size(); i++) {
-            if (p2.getHand().get(i).getSuit() == topCard.getSuit() || p2.getHand().get(i).getRank() == topCard.getSuit()) {
-                topCard = p2.getHand().get(i);
+            Card p2Card = p2.getHand().get(i);
+            if (p2Card.getSuit() == topCard.getSuit() || p2Card.getRank() == topCard.getSuit()) {
+                topCard = p2Card;
                 p2.getHand().remove(i);
                 System.out.println("\nComputer played " + topCard.toString() + "\nTop Card is now " + topCard.toString());
                 canPlay = true;
@@ -91,8 +94,9 @@ public class Game {
                 // Can use for loops and traverse arraylist
                 // Checks if they have a card to play
                 for (int i = 0; i < p1.getHand().size(); i++) {
-                    System.out.println("Card " + (i + 1) + ": " + p1.getHand().get(i).toString());
-                    if (p1.getHand().get(i).getSuit().equals(topCard.getSuit()) || p1.getHand().get(i).getRank().equals(topCard.getRank())) {
+                    Card p1Card = p1.getHand().get(i);
+                    System.out.println("Card " + (i + 1) + ": " + p1Card.toString());
+                    if (p1Card.getSuit().equals(topCard.getSuit()) || p1Card.getRank().equals(topCard.getRank())) {
                         canPlay = true;
                     }
                 }
@@ -120,6 +124,7 @@ public class Game {
                         if (p1.getHand().get(cardNum).getRank().equals("8") && (p1.getHand().get(cardNum).getSuit().equals(topCard.getSuit()) || topCard.getRank().equals("8"))) {
                             System.out.println("Please input a suit (ex: spades)");
                             String suitInput = input.nextLine();
+
 
                             // If the suit exists set the top card equal to that and remove a card from p1 deck
                             if (suitInput.equalsIgnoreCase("Hearts")) {
@@ -176,10 +181,10 @@ public class Game {
         }
         window.repaint();
         // If the players hand is empty then game is over and they've won
-        if (gameOver() && currentPlayer && !isTied()) {
+        if (gameOver() && isCurrentPlayer() && !isTied()) {
             System.out.println(p1.getName() + " wins!");
         }
-        if (gameOver() && !currentPlayer && !isTied()) {
+        if (gameOver() && !isCurrentPlayer() && !isTied()) {
             System.out.println("Computer wins!");
         }
     }
@@ -188,6 +193,7 @@ public class Game {
     public boolean isCurrentPlayer() {
         return currentPlayer;
     }
+
     public boolean isTied() {
         if (deck.isEmpty()) {
             return true;
