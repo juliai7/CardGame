@@ -19,14 +19,16 @@ public class Deck {
     public Deck(int[] points, String[] ranks, String[] suits) {
         // Initialize arraylist
         cards = new ArrayList<Card>();
-        // Can use for-each loops
+        // Counter to iterate through card images
         int j = 1;
         for (int i = 0; i < ranks.length; i++) {
             for (String suit: suits) {
                 String rank = ranks[i];
                 Image cardImage = new ImageIcon("Resources/" + j + ".png").getImage();
+                // Assign each card image to the correct card
                 Card card = new Card(rank,suit, points[i], window, cardImage) ;
                 if (card.getRank().equals("8")) {
+                    // Create unique cards for the eights so can later check if the card is an eight or not in the Game class
                     if (card.getSuit().equals("Spades")) {
                         eightOfSpades = card;
                     }
@@ -40,12 +42,12 @@ public class Deck {
                         eightOfClubs = card;
                     }
                 }
+                // Add the newly created card to the deck
                 cards.add(card);
                 cardsLeft+=1;
                 j++;
             }
         }
-
         this.shuffle();
 
     }
@@ -77,6 +79,7 @@ public class Deck {
     }
 
     public Card deal() {
+        // If the deck isn't empty then return the card on top
         if (isEmpty()) {
             return null;
         }
@@ -85,9 +88,8 @@ public class Deck {
     }
 
     public void shuffle() {
-        // Can use arraylist methods
         for (int i = cards.size() - 1; i > 0; i--) {
-            // Can use math class including multiplication and math.random
+            // Swap card with a random card in the deck and repeat
             int r = (int) (Math.random() * i);
             Card temp = cards.get(i);
             cards.set(i, cards.get(r));

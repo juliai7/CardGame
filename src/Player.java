@@ -6,7 +6,6 @@ public class Player {
     private String name;
 
     public Player(String inputname) {
-        // Assign object
         name = inputname;
         points = 0;
         hand = new ArrayList<Card>();

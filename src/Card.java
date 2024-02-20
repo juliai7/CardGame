@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Card {
     private String suit;
     private String rank;
-    // Declare primitive variable
     private int point;
     private GameViewer window;
 
@@ -42,6 +41,7 @@ public class Card {
     }
 
     public void draw (Graphics g, int x, int y) {
+        // Draws card images and takes in coordinates to where its going to be placed
         g.drawImage(image, x, y, 100, 150, window);
 
     }
